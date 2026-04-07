@@ -1,4 +1,6 @@
-package Ejer2;
+package Ejer2.Items;
+
+import Ejer2.Pedido;
 
 public abstract class ItemMenu {
     private float precio;

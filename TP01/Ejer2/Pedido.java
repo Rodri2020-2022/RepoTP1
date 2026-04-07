@@ -1,5 +1,10 @@
 package Ejer2;
 
+import Ejer2.Items.Bebida;
+import Ejer2.Items.ItemMenu;
+import Ejer2.Items.Plato;
+import Ejer2.Tarjeta.TarjetaCredito;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,10 +43,21 @@ public class Pedido {
         this.precioTotalPlatos += plato.getPrecio();
     }
 
-    public void recibirPago(TarjetaCredito tarjeta){
+    public void recibirPago(TarjetaCredito tarjeta, Propina propina){
+        System.out.println("Pago: " + precioTotal);
+
         float pagoConDescuento = tarjeta.aplicarDescuento(precioTotalBebidas, precioTotalPlatos);
-        tarjeta.pagar(pagoConDescuento);
+        System.out.println("Pago aplicado el descuento: " + pagoConDescuento + " [-" + (precioTotal-pagoConDescuento) + "]");
+
+        float pagoSumadoPropina = aplicarPropina(propina, pagoConDescuento);
+        System.out.println("Pago aplicada la propina: " + pagoSumadoPropina + " [+" + (pagoSumadoPropina-pagoConDescuento) + "]");
+
+        tarjeta.pagar(pagoSumadoPropina);
         pagado = true;
+    }
+
+    private static float aplicarPropina(Propina propina, float pagoConDescuento) {
+        return pagoConDescuento + (pagoConDescuento * propina.getMontoElegido());
     }
 
 }

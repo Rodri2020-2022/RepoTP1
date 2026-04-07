@@ -1,13 +1,18 @@
 package Ejer2_Test;
 
 import Ejer2.*;
+import Ejer2.Items.Bebida;
+import Ejer2.Comensal;
+import Ejer2.Items.Plato;
+import Ejer2.Menu.Menu;
+import Ejer2.Tarjeta.TarjetaMASTERCARD;
 import org.junit.jupiter.api.Test;
 
 public class RestauranteTest {
     @Test
     void main(){
         var tarjeta1 = new TarjetaMASTERCARD(1000100010001000L,
-                59500.20f);
+                70000.20f);
         System.out.println(tarjeta1.toString());
 
         var cl1 = new Comensal("Rodrigo","43138364");
@@ -18,7 +23,8 @@ public class RestauranteTest {
         Bebida bebida1 = Menu.PEPSI_BOTELLA;
 
         Pedido p1 = new Pedido(cl1.getNombre(), plato1, plato2, bebida1);
-        cl1.pagarPedido(p1);
+        cl1.pagarPedidoYPropina(p1, Propina.PROPINA_5porCiento);
+
         System.out.println(tarjeta1.toString());
 
     }

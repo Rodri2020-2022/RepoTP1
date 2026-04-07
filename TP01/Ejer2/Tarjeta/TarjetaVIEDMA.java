@@ -1,12 +1,13 @@
-package Ejer2;
+package Ejer2.Tarjeta;
 
-public class TarjetaCOMARCAPLUS implements TarjetaCredito {
+import Ejer2.Comensal;
+
+public class TarjetaVIEDMA implements TarjetaCredito {
     private Long nroTarjeta;
     private String titular;
     private float saldoDisponible;
-    static final float DESCUENTO_TOTAL = (float) 2/100;
 
-    public TarjetaCOMARCAPLUS(Long nroTarjeta, float montoDisponible) {
+    public TarjetaVIEDMA(Long nroTarjeta, float montoDisponible) {
         this.nroTarjeta = nroTarjeta;
         this.saldoDisponible = montoDisponible;
     }
@@ -19,12 +20,9 @@ public class TarjetaCOMARCAPLUS implements TarjetaCredito {
         return monto;
     }
 
+    @Override
     public float aplicarDescuento(float montoBebidas, float montoPlatos) {
-        return descuento(montoBebidas + montoPlatos);
-    }
-
-    private static float descuento(float monto) {
-        return monto - (monto * DESCUENTO_TOTAL);
+        return montoBebidas + montoPlatos;
     }
 
     public void asignarTitular(Comensal comensalTitular){
@@ -33,7 +31,7 @@ public class TarjetaCOMARCAPLUS implements TarjetaCredito {
 
     @Override
     public String toString() {
-        return "TarjetaCOMARCAPLUS {" +
+        return "TarjetaVIEDMA {" +
                 "NRO: " + nroTarjeta +
                 ", De: " + titular + '\'' +
                 ", Saldo =" + String.format("%.2f", saldoDisponible) +

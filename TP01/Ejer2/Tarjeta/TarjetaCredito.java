@@ -1,4 +1,6 @@
-package Ejer2;
+package Ejer2.Tarjeta;
+
+import Ejer2.Comensal;
 
 public interface TarjetaCredito {
     float pagar(float monto);

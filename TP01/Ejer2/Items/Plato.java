@@ -1,6 +1,8 @@
-package Ejer2;
+package Ejer2.Items;
 
-public class Plato extends ItemMenu{
+import Ejer2.Pedido;
+
+public class Plato extends ItemMenu {
     private String nombrePlatillo;
     private TIPO tipoPlato;
 

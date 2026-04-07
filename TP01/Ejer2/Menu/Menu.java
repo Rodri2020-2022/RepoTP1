@@ -1,4 +1,8 @@
-package Ejer2;
+package Ejer2.Menu;
+
+import Ejer2.Items.Bebida;
+import Ejer2.Items.TIPO;
+import Ejer2.Items.Plato;
 
 public class Menu {
     public static final Plato MILANESA =

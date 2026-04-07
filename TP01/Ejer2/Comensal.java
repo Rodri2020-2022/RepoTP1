@@ -1,5 +1,7 @@
 package Ejer2;
 
+import Ejer2.Tarjeta.TarjetaCredito;
+
 public class Comensal {
     private String nombre, dni;
     private TarjetaCredito tarjeta;
@@ -14,8 +16,8 @@ public class Comensal {
         this.tarjeta.asignarTitular(this);
     }
 
-    public void pagarPedido(Pedido pedido){
-        pedido.recibirPago(tarjeta);
+    public void pagarPedidoYPropina(Pedido pedido, Propina propina){
+        pedido.recibirPago(tarjeta, propina);
     }
 
     public String getNombre() {
